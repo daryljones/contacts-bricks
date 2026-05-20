@@ -1,0 +1,22 @@
+* PERS -- person contacts menu / action selection (entry screen).
+* Operator picks an action (A/Q/U/D/L/S); Q/U/D require a record id,
+* A auto-assigns one, L/S ignore it. SEARCH carries the optional
+* filter for the S action.
+MAP PERS1 SIZE 24x80
+  FIELD INFOLINE AT 0,0   LEN 78 PROT BRIGHT COLOR=WHITE
+  FIELD AT 3,2  LEN 50 PROT BRIGHT COLOR=WHITE     "Person Contacts            PERS Transaction"
+  FIELD AT 6,15  LEN 9  PROT                        "Action:"
+  INPUT ACTION   AT 6,2  LEN 1  UNDERSCORE COLOR=GREEN
+  STOP           AT 6,4
+  FIELD AT 6,7  LEN 50 PROT DIM                    "(A=Add Q=Query U=Update D=Delete L=List S=Search)"
+  FIELD AT 8,2  LEN 12 PROT                        "Record ID:"
+  INPUT RECID    AT 8,15  LEN 8  UNDERSCORE COLOR=GREEN
+  STOP           AT 8,24
+  FIELD AT 8,26 LEN 35 PROT DIM                    "(8-digit, auto-assigned on Add)"
+  FIELD AT 10,2 LEN 12 PROT                        "Search:"
+  INPUT SEARCH   AT 10,15 LEN 30 UNDERSCORE COLOR=GREEN
+  STOP           AT 10,46
+  FIELD MSG      AT 14,15 LEN 60 PROT BRIGHT COLOR=RED
+  FIELD AT 22,1  LEN 60 PROT DIM COLOR=BLUE       "ENTER=Continue   F12=Exit"
+  CURSOR         AT ACTION
+ENDMAP

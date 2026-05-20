@@ -1,0 +1,69 @@
+* PERS -- contact detail form (used by Add / Query / Update / Delete-confirm).
+* DRECID / DADDED / DUPDATED are protected -- the program assigns them.
+* The remaining 12 slots accept the operator's input under Add / Update;
+* Query and Delete-confirm render them protected via the DMODE banner.
+MAP PERS2 SIZE 24x80
+  FIELD INFOLINE  AT 0,0   LEN 78 PROT BRIGHT COLOR=WHITE
+  FIELD AT 2,2  LEN 30 PROT BRIGHT COLOR=BLUE      "Contact Detail"
+
+  FIELD AT 3,2  LEN 11 PROT                         "Record ID:"
+  INPUT DRECID    AT 3,14  LEN 8  PROT BRIGHT COLOR=WHITE
+  FIELD AT 3,28 LEN 7  PROT                         "Added:"
+  INPUT DADDED    AT 3,36  LEN 10 PROT COLOR=TURQUOISE
+  FIELD AT 3,52 LEN 9  PROT                         "Updated:"
+  INPUT DUPDATED  AT 3,62  LEN 10 PROT COLOR=TURQUOISE
+
+  FIELD AT 5,2  LEN 11 PROT                         "Full name:"
+  INPUT DNAME     AT 5,14  LEN 40 UNDERSCORE COLOR=GREEN
+  STOP            AT 5,55
+
+  FIELD AT 6,2  LEN 11 PROT                         "Sex:"
+  INPUT DSEX      AT 6,14  LEN 1  UNDERSCORE COLOR=GREEN
+  STOP            AT 6,16
+  FIELD AT 6,18 LEN 7  PROT DIM                     "(M/F/X)"
+  FIELD AT 6,28 LEN 6  PROT                         "Race:"
+  INPUT DRACE     AT 6,35  LEN 20 UNDERSCORE COLOR=GREEN
+  STOP            AT 6,56
+
+  FIELD AT 7,2  LEN 11 PROT                         "DOB:"
+  INPUT DDOB      AT 7,14  LEN 10 UNDERSCORE COLOR=GREEN
+  STOP            AT 7,25
+  FIELD AT 7,27 LEN 12 PROT DIM                     "(YYYY-MM-DD)"
+
+  FIELD AT 9,2  LEN 11 PROT                         "Address 1:"
+  INPUT DADDR1    AT 9,14  LEN 40 UNDERSCORE COLOR=GREEN
+  STOP            AT 9,55
+  FIELD AT 10,2 LEN 11 PROT                         "Address 2:"
+  INPUT DADDR2    AT 10,14 LEN 40 UNDERSCORE COLOR=GREEN
+  STOP            AT 10,55
+
+  FIELD AT 11,2 LEN 11 PROT                         "City:"
+  INPUT DCITY     AT 11,14 LEN 25 UNDERSCORE COLOR=GREEN
+  STOP            AT 11,40
+  FIELD AT 11,42 LEN 6 PROT                         "State:"
+  INPUT DSTATE    AT 11,49 LEN 2  UNDERSCORE COLOR=GREEN
+  STOP            AT 11,52
+  FIELD AT 11,54 LEN 4 PROT                         "Zip:"
+  INPUT DZIP      AT 11,59 LEN 10 UNDERSCORE COLOR=GREEN
+  STOP            AT 11,70
+
+  FIELD AT 13,2 LEN 11 PROT                         "Email:"
+  INPUT DEMAIL    AT 13,14 LEN 40 UNDERSCORE COLOR=GREEN
+  STOP            AT 13,55
+
+  FIELD AT 14,2 LEN 11 PROT                         "Phone 1:"
+  INPUT DPH1      AT 14,14 LEN 16 UNDERSCORE COLOR=GREEN
+  STOP            AT 14,31
+  FIELD AT 14,33 LEN 9 PROT                         "Phone 2:"
+  INPUT DPH2      AT 14,43 LEN 16 UNDERSCORE COLOR=GREEN
+  STOP            AT 14,60
+
+  FIELD AT 16,2 LEN 11 PROT                         "Note:"
+  INPUT DNOTE     AT 16,14 LEN 60 UNDERSCORE COLOR=GREEN
+  STOP            AT 16,75
+
+  FIELD DMODE     AT 19,2  LEN 76 PROT DIM COLOR=BLUE
+  FIELD DMSG      AT 20,2  LEN 76 PROT BRIGHT COLOR=RED
+  FIELD AT 22,2 LEN 60 PROT DIM COLOR=BLUE          "ENTER=Save   PF3=Cancel"
+  CURSOR          AT 5,15
+ENDMAP

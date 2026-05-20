@@ -1,0 +1,28 @@
+* PERS -- contacts list (paged via PF7/PF8). Row format below mirrors
+* the GUSL/CUSTL layout: ID + NAME + CITY + PHONE, space-padded so the
+* columns line up under the header. Rows are INPUT (unprotected) so
+* TAB lands the cursor on them; PERL reads EIBCPOSN on ENTER to pick
+* the row the operator selected and renders the matching PERS2 detail.
+* The operator can technically type over a row -- PERL ignores the
+* typed bytes (it uses the saved keys, not the row contents).
+MAP PERSL SIZE 24x80
+  FIELD INFOLINE AT 0,0   LEN 78 PROT BRIGHT COLOR=WHITE
+  FIELD AT 2,2   LEN 76 PROT BRIGHT COLOR=BLUE  "Contacts"
+  FIELD AT 4,2   LEN 78 PROT DIM COLOR=TURQUOISE    "ID       NAME                            CITY               PHONE"
+  INPUT ROW1   AT 5,2   LEN 76 COLOR=GREEN
+  INPUT ROW2   AT 6,2   LEN 76 COLOR=GREEN
+  INPUT ROW3   AT 7,2   LEN 76 COLOR=GREEN
+  INPUT ROW4   AT 8,2   LEN 76 COLOR=GREEN
+  INPUT ROW5   AT 9,2   LEN 76 COLOR=GREEN
+  INPUT ROW6   AT 10,2  LEN 76 COLOR=GREEN
+  INPUT ROW7   AT 11,2  LEN 76 COLOR=GREEN
+  INPUT ROW8   AT 12,2  LEN 76 COLOR=GREEN
+  INPUT ROW9   AT 13,2  LEN 76 COLOR=GREEN
+  INPUT ROW10  AT 14,2  LEN 76 COLOR=GREEN
+  INPUT ROW11  AT 15,2  LEN 76 COLOR=GREEN
+  INPUT ROW12  AT 16,2  LEN 76 COLOR=GREEN
+  INPUT ROW13  AT 17,2  LEN 76 COLOR=GREEN
+  INPUT ROW14  AT 18,2  LEN 76 COLOR=GREEN
+  INPUT ROW15  AT 19,2  LEN 76 COLOR=GREEN
+  FIELD AT 22,2  LEN 76 PROT DIM COLOR=BLUE    "TAB=Next row  ENTER=View row  PF7=PageUp  PF8=PageDown  PF3=Exit"
+ENDMAP
